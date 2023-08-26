@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prim Boonyachai | Student Page</title>
+
+    <style>
+      @font-face {
+        src: url(fonts/Swansea-q3pd.ttf);
+        font-family: "Swansea Font";
+      }
+
+      h1 {
+        padding-top: 60px;
+        color: rgb(46, 46, 82);
+        font-family: "Swansea Font";
+        text-align: center;
+      }
+
+      .email {
+        padding-bottom: 20px;
+        text-align: center;
+        font-family: "Swansea Font";
+      }
+
+      button {
+        font-family: "Swansea Font";
+        background-color: white;
+        border: 3px solid rgb(197, 197, 234);
+        font-size: 16px;
+        color: rgb(114, 114, 165);
+        padding: 15px 32px;
+        display: inline-block;
+        left: 44.5%;
+        position: absolute;
+        transition-duration: 0.4s;
+      }
+
+      button:hover {
+        background-color: rgb(197, 197, 234);
+        cursor: pointer;
+        color: white;
+      }
+
+      .column {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .content {
+        color: rgb(46, 46, 82);
+        font-family: "Swansea Font";
+        display: flex;
+        padding-top: 55px;
+        text-align: center;
+        justify-content: space-between;
+      }
+
+      hr {
+        width: 80%;
+      }
+
+      .links {
+        padding-top: 20px;
+        font-size: 18px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prim Boonyachai</h1>
+
+    <div class="email">
+      <a href="boonyach@usc.edu">boonyach@usc.edu</a>
+    </div>
+
+    <div id="fav-color">
+      <button>Favorite Color</button>
+    </div>
+
+    <div class="content">
+      <div class="column">
+        <h2>Assignments</h2>
+        <hr />
+      </div>
+
+      <div class="column">
+        <h2>Labs</h2>
+        <hr />
+        <div class="links">
+          <a href="../lab_01/index.html">Lab 1: Student Page</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector("#fav-color").onclick = function () {
+        document.querySelector("body").style.backgroundColor =
+          "rgb(197, 197, 234)";
+      };
+    </script>
+  </body>
+</html>
