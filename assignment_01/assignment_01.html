@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Prim Boonyachai | JS Photo Gallery</title>
 
@@ -91,32 +91,32 @@
         <img class="main-img" src="img/cat-01.png" alt="Cat 01" />
       </div>
     </div>
+
+    <script>
+      document.querySelector("#cat-01").onclick = function () {
+        document.querySelector(".main-img").src = "img/cat-01.png";
+        document.querySelector(".main-img").alt = "Cat 01";
+      };
+
+      document.querySelector("#cat-02").onclick = function () {
+        document.querySelector(".main-img").src = "img/cat-02.png";
+        document.querySelector(".main-img").alt = "Cat 02";
+      };
+
+      document.querySelector("#cat-03").onclick = function () {
+        document.querySelector(".main-img").src = "img/cat-03.png";
+        document.querySelector(".main-img").alt = "Cat 03";
+      };
+
+      document.querySelector("#cat-04").onclick = function () {
+        document.querySelector(".main-img").src = "img/cat-04.png";
+        document.querySelector(".main-img").alt = "Cat 04";
+      };
+
+      document.querySelector("#cat-05").onclick = function () {
+        document.querySelector(".main-img").src = "img/cat-05.png";
+        document.querySelector(".main-img").alt = "Cat 05";
+      };
+    </script>
   </body>
-
-  <script>
-    document.querySelector("#cat-01").onclick = function () {
-      document.querySelector(".main-img").src = "img/cat-01.png";
-      document.querySelector(".main-img").alt = "Cat 01";
-    };
-
-    document.querySelector("#cat-02").onclick = function () {
-      document.querySelector(".main-img").src = "img/cat-02.png";
-      document.querySelector(".main-img").alt = "Cat 02";
-    };
-
-    document.querySelector("#cat-03").onclick = function () {
-      document.querySelector(".main-img").src = "img/cat-03.png";
-      document.querySelector(".main-img").alt = "Cat 03";
-    };
-
-    document.querySelector("#cat-04").onclick = function () {
-      document.querySelector(".main-img").src = "img/cat-04.png";
-      document.querySelector(".main-img").alt = "Cat 04";
-    };
-
-    document.querySelector("#cat-05").onclick = function () {
-      document.querySelector(".main-img").src = "img/cat-05.png";
-      document.querySelector(".main-img").alt = "Cat 05";
-    };
-  </script>
 </html>
