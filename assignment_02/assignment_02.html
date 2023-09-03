@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prim Boonyachai | Shopping Cart</title>
+
+    <style>
+      @font-face {
+        font-family: "Josefin Sans Regular Font";
+        src: url(../fonts/JosefinSans-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "Josefin Sans Light Font";
+        src: url(../fonts/JosefinSans-Light.ttf);
+      }
+
+      .header {
+        padding: 50px;
+        font-family: "Josefin Sans Regular Font";
+        text-align: center;
+        background-color: rgb(241, 191, 191);
+        color: white;
+        font-size: 20px;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      #product-img {
+        display: flex;
+        justify-content: center;
+      }
+
+      .product-container {
+        text-align: center;
+        margin: 10px;
+      }
+
+      .product-container img {
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        margin: 30px;
+        padding-top: 8px;
+      }
+
+      .product-container img:hover {
+        cursor: pointer;
+      }
+
+      .product-text {
+        margin-top: 1px;
+        font-family: "Josefin Sans Light Font";
+      }
+
+      .product-price {
+        font-family: "Josefin Sans Light Font";
+      }
+
+      footer {
+        text-align: center;
+        background-color: rgb(241, 191, 191);
+        padding: 15px;
+        color: white;
+        font-family: "Josefin Sans Light Font";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #subtotal {
+        font-family: "Josefin Sans Regular Font";
+        text-align: right;
+        margin-top: 30px;
+        margin-right: 187px;
+      }
+
+      hr {
+        width: 75%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>My Cart</h1>
+    </div>
+
+    <div id="product-img">
+      <div class="product-container">
+        <img class="deodorant" src="./img/deodorant.png" alt="Deodorant" />
+        <p class="product-text">Sweet Pitti Deodorant Cream</p>
+        <p><span class="product-price">$16</span></p>
+      </div>
+
+      <div class="product-container">
+        <img
+          class="moisturizer"
+          src="./img/moisturizer.png"
+          alt="Moisturizer"
+        />
+        <p class="product-text">Protini Polypeptide Cream</p>
+        <p><span class="product-price">$68</span></p>
+      </div>
+
+      <div class="product-container">
+        <img class="shampoo" src="./img/shampoo.png" alt="Shampoo" />
+        <p class="product-text">Silkamino Mega-Moisturizing Shampoo</p>
+        <p><span class="product-price">$27</span></p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="subtotal">
+      <p class="product-subtotal">Cart Subtotal: $<span id="price">0</span></p>
+    </div>
+
+    <footer>© 2023 Drunk Elephant Skincare Co.</footer>
+
+    <script>
+      /*
+        
+        workflow:
+        1. user clicks on product image.
+        2. save current count in variable 'priceChanges'.
+        3. convert 'priceChanges' to a numeric value using parseInt().
+        4. increment 'priceChanges' by the price of the product clicked on.
+        5. display the new value in cart subtotal to users.
+
+        */
+
+      // 1. user clicks on product image (deodorant).
+      document.querySelector(".deodorant").onclick = function () {
+        // 2. save current count in variable 'priceChanges'.
+        var priceChanges = document.querySelector("#price").innerHTML;
+
+        // 3. convert 'priceChanges' to a numeric value using parseInt().
+        priceChanges = parseInt(priceChanges);
+
+        // 4. increment 'priceChanges' by the price of the product clicked on (16).
+        priceChanges += 16;
+
+        // 5. display the new value in cart subtotal to users.
+        document.querySelector("#price").innerHTML = priceChanges;
+      };
+
+      // 1. user clicks on product image (moisturizer).
+      document.querySelector(".moisturizer").onclick = function () {
+        // 2. save current count in variable 'priceChanges'.
+        var priceChanges = document.querySelector("#price").innerHTML;
+
+        // 3. convert 'priceChanges' to a numeric value using parseInt().
+        priceChanges = parseInt(priceChanges);
+
+        // 4. increment 'priceChanges' by the price of the product clicked on (68).
+        priceChanges += 68;
+
+        // 5. display the new value in cart subtotal to users.
+        document.querySelector("#price").innerHTML = priceChanges;
+      };
+
+      // 1. user clicks on product image (shampoo).
+      document.querySelector(".shampoo").onclick = function () {
+        // 2. save current count in variable 'priceChanges'.
+        var priceChanges = document.querySelector("#price").innerHTML;
+
+        // 3. convert 'priceChanges' to a numeric value using parseInt().
+        priceChanges = parseInt(priceChanges);
+
+        // 4. increment 'priceChanges' by the price of the product clicked on (27).
+        priceChanges += 27;
+
+        // 5. display the new value in cart subtotal to users.
+        document.querySelector("#price").innerHTML = priceChanges;
+      };
+    </script>
+  </body>
+</html>
