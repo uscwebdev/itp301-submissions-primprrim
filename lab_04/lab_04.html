@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prim Boonyachai | JS Photo Gallery</title>
+
+    <style>
+      @font-face {
+        src: url(fonts/JosefinSans-Regular.ttf);
+        font-family: "Josefin Sans Regular Font";
+      }
+
+      body {
+        background-color: rgb(255, 243, 230);
+      }
+
+      h1 {
+        margin-top: 5%;
+        font-family: "Josefin Sans Regular Font";
+        text-align: center;
+        color: rgb(57, 22, 10);
+      }
+
+      #cat-img {
+        margin-top: 2.5%;
+      }
+
+      .cat {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border-radius: 15px;
+        display: block;
+        margin-bottom: 18px;
+        margin-left: 415px;
+        margin-right: 10%;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+      .cat:hover {
+        transform: scale(1.1);
+      }
+
+      #main-frame {
+        width: 34.3%;
+        margin-top: 2%;
+        margin-left: 40px;
+        margin-right: 10%;
+      }
+
+      .main-img {
+        max-width: 580px;
+        height: 580px;
+        border-radius: 20px;
+        box-shadow: rgba(155, 155, 169, 0.3) 0px 7px 29px 0px;
+      }
+
+      #gallery-container {
+        display: flex;
+        position: fixed;
+        align-items: flex-start;
+      }
+
+      #label {
+        font-family: "Josefin Sans Regular Font";
+        transform: rotate(90deg);
+        white-space: nowrap;
+        position: absolute;
+        left: 100%;
+        top: 42%;
+        font-size: 30px;
+        color: rgb(57, 22, 10);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Photo Gallery</h1>
+
+    <div id="gallery-container">
+      <div id="cat-img">
+        <div id="cat-01">
+          <img class="cat" src="img/cat-01.png" alt="sleepy cat" />
+        </div>
+
+        <div id="cat-02">
+          <img class="cat" src="img/cat-02.png" alt="annoyed cat" />
+        </div>
+
+        <div id="cat-03">
+          <img class="cat" src="img/cat-03.png" alt="grumpy cat" />
+        </div>
+
+        <div id="cat-04">
+          <img class="cat" src="img/cat-04.png" alt="curious cat" />
+        </div>
+
+        <div id="cat-05">
+          <img class="cat" src="img/cat-05.png" alt="confused cat" />
+        </div>
+      </div>
+
+      <div id="main-frame">
+        <img class="main-img" src="img/cat-01.png" alt="Cat 01" />
+      </div>
+
+      <h2 id="label">sleepy cat</h2>
+    </div>
+
+    <script>
+      var smallImg = document.querySelectorAll(".cat");
+
+      var mainImg = function (newSrc, newAlt) {
+        document.querySelector(".main-img").src = newSrc;
+        document.querySelector(".main-img").alt = newAlt;
+        document.querySelector("#label").innerHTML = newAlt;
+      };
+
+      for (var i = 0; i < smallImg.length; i++) {
+        console.log(i);
+        smallImg[i].onclick = function () {
+          console.log("image clicked");
+          console.log(this);
+          var imgsrc = this.src;
+          var imgalt = this.alt;
+          mainImg(imgsrc, imgalt, imgalt);
+        };
+      }
+
+      // PREVIOUS JS CODE
+
+      // document.querySelector("#cat-01").onclick = function () {
+      //   document.querySelector(".main-img").src = "img/cat-01.png";
+      //   document.querySelector(".main-img").alt = "Cat 01";
+      // };
+
+      // document.querySelector("#cat-02").onclick = function () {
+      //   document.querySelector(".main-img").src = "img/cat-02.png";
+      //   document.querySelector(".main-img").alt = "Cat 02";
+      // };
+
+      // document.querySelector("#cat-03").onclick = function () {
+      //   document.querySelector(".main-img").src = "img/cat-03.png";
+      //   document.querySelector(".main-img").alt = "Cat 03";
+      // };
+
+      // document.querySelector("#cat-04").onclick = function () {
+      //   document.querySelector(".main-img").src = "img/cat-04.png";
+      //   document.querySelector(".main-img").alt = "Cat 04";
+      // };
+
+      // document.querySelector("#cat-05").onclick = function () {
+      //   document.querySelector(".main-img").src = "img/cat-05.png";
+      //   document.querySelector(".main-img").alt = "Cat 05";
+      // };
+    </script>
+  </body>
+</html>
