@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prim Boonyachai | Liar's Dice Game</title>
+
+    <style>
+      @font-face {
+        src: url(fonts/JosefinSans-Regular.ttf);
+        font-family: "Josefin Sans Regular Font";
+      }
+
+      @font-face {
+        src: url(fonts/JosefinSans-Light.ttf);
+        font-family: "Josefin Sans Light Font";
+      }
+
+      body {
+        margin-top: 8%;
+        margin-left: 35%;
+        margin-right: 33%;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 4px 4px 50px rgba(102, 102, 102, 0.2);
+        border-radius: 20px;
+      }
+
+      h1 {
+        color: #000000;
+        font-family: "Josefin Sans Regular Font";
+      }
+
+      #content-container {
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      #dice-container {
+        display: flex;
+      }
+
+      #dice-container img {
+        margin: 5px;
+        width: 60px;
+        height: 60px;
+      }
+
+      #guess {
+        padding: 8px;
+        font-family: "Josefin Sans Light Font";
+      }
+
+      #submit {
+        padding: 8px 10px;
+        font-family: "Josefin Sans Regular Font";
+      }
+
+      #result {
+        font-family: "Josefin Sans Regular Font";
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content-container">
+      <h1>Liar's Dice Game</h1>
+      <input type="number" id="guess" placeholder="Enter your guess (1-6)" />
+      <button id="submit">Submit</button>
+      <div id="result">
+        <h3>Result:</h3>
+        <p id="message"></p>
+      </div>
+      <div id="dice-container">
+        <img class="dice" src="./img/1.png" alt="Dice 1" />
+        <img class="dice" src="./img/2.png" alt="Dice 2" />
+        <img class="dice" src="./img/3.png" alt="Dice 3" />
+        <img class="dice" src="./img/4.png" alt="Dice 4" />
+        <img class="dice" src="./img/5.png" alt="Dice 5" />
+        <img class="dice" src="./img/6.png" alt="Dice 6" />
+      </div>
+    </div>
+
+    <script>
+      /* 
+        
+        workflow: 
+            1. generate random integer between 1-6
+            2. update dice images based on the values in the numbers array
+            3. check user's guess
+            4. produce results for user's guess submission
+
+        */
+
+      // 1. generate random integer between 1-6
+      function getRandomNumber() {
+        return Math.floor(Math.random() * 6) + 1;
+      }
+
+      // 2. update dice images based on the values in the numbers array
+      function updateDiceImages() {
+        var diceImages = document.querySelectorAll(".dice");
+        for (var i = 0; i < diceImages.length; i++) {
+          var randomValue = getRandomNumber();
+          diceImages[i].src = "./img/" + randomValue + ".png";
+          diceImages[i].alt = randomValue;
+        }
+      }
+
+      // 3. check user's guess
+      function checkGuess(userGuess, numbers) {
+        for (var i = 0; i < numbers.length; i++) {
+          if (numbers[i] === userGuess) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      // 4. produce results for user's guess submission
+      function handleSubmit() {
+        var userGuess = parseInt(document.getElementById("guess").value);
+        var numbers = [];
+
+        for (var i = 0; i < 5; i++) {
+          numbers.push(getRandomNumber());
+        }
+
+        updateDiceImages(numbers);
+
+        var messageElement = document.getElementById("message");
+        if (checkGuess(userGuess, numbers)) {
+          messageElement.textContent = "Success! You guessed it!";
+          messageElement.style.color = "green";
+        } else {
+          messageElement.textContent = "Sorry, your guess was incorrect.";
+          messageElement.style.color = "red";
+        }
+      }
+
+      document.getElementById("submit").addEventListener("click", handleSubmit);
+    </script>
+  </body>
+</html>
